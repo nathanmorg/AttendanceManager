@@ -12,6 +12,7 @@ namespace AttendanceManager
 {
     public partial class Form1 : Form
     {
+        DatabaseHandler dataHandler = new DatabaseHandler();
         List<Student> students = new List<Student>();
         public Form1()
         {
@@ -20,7 +21,9 @@ namespace AttendanceManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            students = dataHandler.getStudentsFromDatabase();
 
+            studentBindingSource.DataSource = students;
 ;       }
 
         private void btnNext_Click(object sender, EventArgs e)
