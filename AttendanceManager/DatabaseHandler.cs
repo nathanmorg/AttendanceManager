@@ -53,7 +53,7 @@ namespace AttendanceManager
 
             //Close the reader and return the list of students
             reader.Close();
-            return new List<Student>();
+            return importedStudents;
         }
 
     }
