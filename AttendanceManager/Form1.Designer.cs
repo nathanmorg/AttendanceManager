@@ -44,6 +44,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
+            this.btnMarkAbsent = new System.Windows.Forms.Button();
             firstNameLabel = new System.Windows.Forms.Label();
             gradeLevelLabel = new System.Windows.Forms.Label();
             lastNameLabel = new System.Windows.Forms.Label();
@@ -51,10 +52,6 @@
             teacherLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(AttendanceManager.Student);
             // 
             // firstNameLabel
             // 
@@ -65,14 +62,6 @@
             firstNameLabel.TabIndex = 1;
             firstNameLabel.Text = "first Name:";
             // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "firstName", true));
-            this.firstNameTextBox.Location = new System.Drawing.Point(228, 83);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.firstNameTextBox.TabIndex = 2;
-            // 
             // gradeLevelLabel
             // 
             gradeLevelLabel.AutoSize = true;
@@ -81,14 +70,6 @@
             gradeLevelLabel.Size = new System.Drawing.Size(66, 13);
             gradeLevelLabel.TabIndex = 3;
             gradeLevelLabel.Text = "grade Level:";
-            // 
-            // gradeLevelTextBox
-            // 
-            this.gradeLevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "gradeLevel", true));
-            this.gradeLevelTextBox.Location = new System.Drawing.Point(435, 85);
-            this.gradeLevelTextBox.Name = "gradeLevelTextBox";
-            this.gradeLevelTextBox.Size = new System.Drawing.Size(100, 20);
-            this.gradeLevelTextBox.TabIndex = 4;
             // 
             // lastNameLabel
             // 
@@ -99,14 +80,6 @@
             lastNameLabel.TabIndex = 7;
             lastNameLabel.Text = "last Name:";
             // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "lastName", true));
-            this.lastNameTextBox.Location = new System.Drawing.Point(228, 111);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.lastNameTextBox.TabIndex = 8;
-            // 
             // numberAbsencesLabel
             // 
             numberAbsencesLabel.AutoSize = true;
@@ -116,14 +89,6 @@
             numberAbsencesLabel.TabIndex = 9;
             numberAbsencesLabel.Text = "number Absences:";
             // 
-            // numberAbsencesTextBox
-            // 
-            this.numberAbsencesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "numberAbsences", true));
-            this.numberAbsencesTextBox.Location = new System.Drawing.Point(435, 111);
-            this.numberAbsencesTextBox.Name = "numberAbsencesTextBox";
-            this.numberAbsencesTextBox.Size = new System.Drawing.Size(100, 20);
-            this.numberAbsencesTextBox.TabIndex = 10;
-            // 
             // teacherLabel
             // 
             teacherLabel.AutoSize = true;
@@ -132,6 +97,42 @@
             teacherLabel.Size = new System.Drawing.Size(46, 13);
             teacherLabel.TabIndex = 11;
             teacherLabel.Text = "teacher:";
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(AttendanceManager.Student);
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "firstName", true));
+            this.firstNameTextBox.Location = new System.Drawing.Point(228, 83);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstNameTextBox.TabIndex = 2;
+            // 
+            // gradeLevelTextBox
+            // 
+            this.gradeLevelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "gradeLevel", true));
+            this.gradeLevelTextBox.Location = new System.Drawing.Point(435, 85);
+            this.gradeLevelTextBox.Name = "gradeLevelTextBox";
+            this.gradeLevelTextBox.Size = new System.Drawing.Size(100, 20);
+            this.gradeLevelTextBox.TabIndex = 4;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "lastName", true));
+            this.lastNameTextBox.Location = new System.Drawing.Point(228, 111);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lastNameTextBox.TabIndex = 8;
+            // 
+            // numberAbsencesTextBox
+            // 
+            this.numberAbsencesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "numberAbsences", true));
+            this.numberAbsencesTextBox.Location = new System.Drawing.Point(435, 111);
+            this.numberAbsencesTextBox.Name = "numberAbsencesTextBox";
+            this.numberAbsencesTextBox.Size = new System.Drawing.Size(100, 20);
+            this.numberAbsencesTextBox.TabIndex = 10;
             // 
             // teacherTextBox
             // 
@@ -181,11 +182,22 @@
             this.btnLast.UseVisualStyleBackColor = true;
             this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
             // 
+            // btnMarkAbsent
+            // 
+            this.btnMarkAbsent.Location = new System.Drawing.Point(316, 225);
+            this.btnMarkAbsent.Name = "btnMarkAbsent";
+            this.btnMarkAbsent.Size = new System.Drawing.Size(94, 23);
+            this.btnMarkAbsent.TabIndex = 17;
+            this.btnMarkAbsent.Text = "Mark Absent";
+            this.btnMarkAbsent.UseVisualStyleBackColor = true;
+            this.btnMarkAbsent.Click += new System.EventHandler(this.btnMarkAbsent_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMarkAbsent);
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
@@ -221,6 +233,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnLast;
+        private System.Windows.Forms.Button btnMarkAbsent;
     }
 }
 

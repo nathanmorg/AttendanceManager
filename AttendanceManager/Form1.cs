@@ -39,5 +39,20 @@ namespace AttendanceManager
         {
             studentBindingSource.MoveLast();
         }
+
+        private void btnMarkAbsent_Click(object sender, EventArgs e)
+        {
+            //Get the current student
+            Student currentStudent = (Student)studentBindingSource.Current;
+
+            //Update the text with a new absence
+            numberAbsencesTextBox.Text = (currentStudent.numberAbsences + 1).ToString();
+
+            //Update the database by selecting the students id and adding 1 to the current number of absences
+            dataHandler.markAbsent(currentStudent.id, currentStudent.numberAbsences);
+
+            //Update the studentBindingSource with the new database
+            studentBindingSource.EndEdit();
+        }
     }
 }

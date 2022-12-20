@@ -1,5 +1,7 @@
 ﻿using System.Data.SQLite;
 using System.Collections.Generic;
+using System.Data.OleDb;
+using System;
 
 namespace AttendanceManager
 {
@@ -54,6 +56,30 @@ namespace AttendanceManager
             //Close the reader and return the list of students
             reader.Close();
             return importedStudents;
+        }
+        public void markAbsent (int id, int numberAbsences)
+        {
+            //Add an absence to the number of absences and open the connection
+            numberAbsences += 1;
+
+            //Create the update absences statement
+            string updateAbsences =
+                "UPDATE STUDENTS SET " +
+                "numberAbsences=?" +
+                "WHERE id=?";
+
+            //Create a command from the updateAbsences statement
+            command = new SQLiteCommand(updateAbsences, connection);
+
+            //Create parameters for each ? in the command
+            SQLiteParameter parameterNumberAbsences = new SQLiteParameter("numberAbsences", numberAbsences);
+            SQLiteParameter parameterId = new SQLiteParameter("id", id);
+
+            //Add each parameter to the command and execute
+            command.Parameters.Add(parameterNumberAbsences);
+            command.Parameters.Add(parameterId);
+
+            command.ExecuteNonQuery();
         }
 
     }
